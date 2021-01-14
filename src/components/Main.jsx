@@ -10,13 +10,15 @@ export class Main extends Component {
             type: "",
             gifs: []
         }
+        //bindings
         this.componentDidMount = this.componentDidMount.bind(this)
         this.search = this.search.bind(this)
         this.random = this.random.bind(this)
     }
 
+    //request trending gifs when page load
     componentDidMount() {
-        const apiAddress = `http://api.giphy.com/v1/gifs/trending?api_key=${this.state.apiKey}`
+        const apiAddress = `https://api.giphy.com/v1/gifs/trending?api_key=${this.state.apiKey}`
         fetch(apiAddress)
         .then(res => res.json())
         .then(
@@ -29,9 +31,10 @@ export class Main extends Component {
         )
     }
 
+    //request gifs with search term
     search(e) {
         const val = document.getElementById("input").value
-        const apiAddress = `http://api.giphy.com/v1/gifs/search?q=${val}&api_key=${this.state.apiKey}`
+        const apiAddress = `https://api.giphy.com/v1/gifs/search?q=${val}&api_key=${this.state.apiKey}`
         fetch(apiAddress)
         .then(res => res.json())
         .then(
@@ -46,8 +49,9 @@ export class Main extends Component {
         e.preventDefault();
     }
 
+    //request a random gif
     random() {
-        const apiAddress = `http://api.giphy.com/v1/gifs/random?api_key=${this.state.apiKey}`
+        const apiAddress = `https://api.giphy.com/v1/gifs/random?api_key=${this.state.apiKey}`
         fetch(apiAddress)
         .then(res => res.json())
         .then(

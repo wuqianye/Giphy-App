@@ -3,6 +3,7 @@ import GifCard from "./GifCard"
 
 export class GifContainer extends Component {
     
+    //return GifCard element(s)
     appendContent() {
         const type = this.props.type
         const gifs = this.props.gifs
@@ -22,7 +23,6 @@ export class GifContainer extends Component {
             }
         }
         
-
         return elements
     }
 
